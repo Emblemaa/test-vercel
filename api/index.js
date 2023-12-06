@@ -2,7 +2,7 @@ const Express = require("express");
 
 var app = Express();
 
-app.get("/", (_, res) => {
+app.get("/api", (_, res) => {
 	try {
 		res.status(200).send("TMR Backend");
 	} catch (err) {
