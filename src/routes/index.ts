@@ -1,7 +1,7 @@
 import Express from "express";
 const router = Express.Router();
 
-const accountRoutes = require("./account_routes");
+const accountRoutes = require("./users_routes");
 
 router.use("/accounts", accountRoutes);
 router.get("/health", (_, res) => {

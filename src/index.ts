@@ -1,6 +1,12 @@
-import app from "./api/index";
-import sequelize from "./api/config/database";
+import sequelize from "./config/database";
+import Express from "express";
+
+const routes = require("./routes/index");
 // import dbInit from "./api/config/db_init";
+
+var app = Express();
+
+app.use("/api", routes);
 
 app.listen(process.env.PORT || 8080, async () => {
   try {
