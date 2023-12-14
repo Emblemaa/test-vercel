@@ -31,18 +31,13 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
         step((generator = generator.apply(thisArg, _arguments || [])).next());
     });
 };
-var __importDefault = (this && this.__importDefault) || function (mod) {
-    return (mod && mod.__esModule) ? mod : { "default": mod };
-};
 Object.defineProperty(exports, "__esModule", { value: true });
-const express_1 = __importDefault(require("express"));
-const service = __importStar(require("../service/users_service"));
-const router = express_1.default.Router();
-router.post("/create", (req, res) => __awaiter(void 0, void 0, void 0, function* () {
-    const payload = req.body;
-    console.log(payload.username);
-    const result = yield service.create(payload);
-    return res.status(200).send(result);
-}));
-module.exports = router;
-//# sourceMappingURL=users_routes.js.map
+exports.create = void 0;
+const mapper = __importStar(require("../mapper/users_mapper"));
+const repository = __importStar(require("../repository/users_repository"));
+const create = (payload) => __awaiter(void 0, void 0, void 0, function* () {
+    const user = yield repository.create(payload);
+    return mapper.toDto(user);
+});
+exports.create = create;
+//# sourceMappingURL=users_service.js.map

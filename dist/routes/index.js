@@ -5,8 +5,8 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 const express_1 = __importDefault(require("express"));
 const router = express_1.default.Router();
-const accountRoutes = require("./users_routes");
-router.use("/accounts", accountRoutes);
+const userRoutes = require("./users_routes");
+router.use("/users", userRoutes);
 router.get("/health", (_, res) => {
     try {
         res.status(200).send("TMR Backend okay");

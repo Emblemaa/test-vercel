@@ -1,4 +1,4 @@
-import { Users } from "../model";
+import { Users } from "../models";
 
 const dbInit = () => {
   Users.sync({ force: true });
